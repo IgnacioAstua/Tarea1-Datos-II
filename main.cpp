@@ -9,9 +9,14 @@ int l = 2000000;
 
 void generator () {
     int list[l];
+	string path;
+	cout << "File path: ";
+	cin >> path;
+	char* path_char =  new char[path.length()+1];
+	strcpy(path_char, path.c_str());
     ofstream file;
     ofstream *pfile = &file;
-    file.open("/home/nacho/Escritorio/Archivos/hola.bin");
+    file.open(path_char);
 
     for (int i = 0; i < l; ++i) {
         *pfile << list[i];
@@ -104,15 +109,12 @@ void sorter () {
 
     if (alg == "QS") {
         quickSort(list, 0, 1999999);
-    	cout << "QS";
     }
 	if (alg == "IS") {
 		insertionSort(list, 2000000);
-		cout << "IS";
 	}
 	if (alg == "BS") {
 		bubbleSort(list, 2000000);
-		cout << "BS";
 	}
 
 
